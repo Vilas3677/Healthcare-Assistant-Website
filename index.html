@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo"><i class="fas fa-heartbeat"></i> HealthCare Assistant</div>
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#symptoms"><i class="fas fa-stethoscope"></i> Check Symptoms</a></li>
+            <li><a href="#consult"><i class="fas fa-user-md"></i> Consult Doctor</a></li>
+            <li><a href="#medicine"><i class="fas fa-pills"></i> Medicine Guide</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1><i class="fas fa-heartbeat pulse"></i> Your Health, Our Priority</h1>
+            <p>Get instant medical assistance and connect with healthcare professionals</p>
+            <div class="hero-buttons">
+                <button onclick="location.href='#symptoms'" class="cta-button"><i class="fas fa-stethoscope"></i> Check Symptoms</button>
+                <button onclick="location.href='#consult'" class="cta-button secondary"><i class="fas fa-user-md"></i> Find Doctor</button>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <i class="fas fa-user-md"></i>
+                <h3>50+</h3>
+                <p>Expert Doctors</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3>1000+</h3>
+                <p>Happy Patients</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-hospital"></i>
+                <h3>24/7</h3>
+                <p>Available</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="symptoms" class="symptoms-checker">
+        <h2><i class="fas fa-stethoscope"></i> AI Symptoms Checker</h2>
+        <div class="symptom-input">
+            <textarea id="symptoms-input" placeholder="Describe your symptoms here... (e.g., headache, fever, cough)"></textarea>
+            <button onclick="checkSymptoms()" class="check-button"><i class="fas fa-search"></i> Analyze Symptoms</button>
+        </div>
+        <div id="symptoms-result" class="result-box"></div>
+    </section>
+
+    <section id="consult" class="consultation">
+        <h2><i class="fas fa-user-md"></i> Online Doctor Consultation</h2>
+        <div class="doctors-grid">
+            <div class="doctor-card">
+                <div class="doctor-status online"></div>
+                <img src="https://via.placeholder.com/150" alt="Doctor">
+                <h3>Dr. Sarah Johnson</h3>
+                <p><i class="fas fa-stethoscope"></i> General Physician</p>
+                <p><i class="far fa-clock"></i> Available: 9 AM - 5 PM</p>
+                <p><i class="fas fa-star"></i> 4.9/5 (120 reviews)</p>
+                <button class="consult-button"><i class="fas fa-video"></i> Book Video Consultation</button>
+            </div>
+            <div class="doctor-card">
+                <div class="doctor-status online"></div>
+                <img src="https://via.placeholder.com/150" alt="Doctor">
+                <h3>Dr. Michael Chen</h3>
+                <p><i class="fas fa-heart"></i> Cardiologist</p>
+                <p><i class="far fa-clock"></i> Available: 10 AM - 6 PM</p>
+                <p><i class="fas fa-star"></i> 4.8/5 (98 reviews)</p>
+                <button class="consult-button"><i class="fas fa-video"></i> Book Video Consultation</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="medicine" class="medicine-guide">
+        <h2><i class="fas fa-pills"></i> Medicine Guide & Suggestions</h2>
+        <div class="medicine-tabs">
+            <button class="tab-button active" onclick="switchTab('search')"><i class="fas fa-search"></i> Search Medicine</button>
+            <button class="tab-button" onclick="switchTab('suggest')"><i class="fas fa-lightbulb"></i> Get Suggestions</button>
+        </div>
+        
+        <div id="search-tab" class="tab-content active">
+            <div class="medicine-search">
+                <input type="text" id="medicine-input" placeholder="Search for medicine...">
+                <button onclick="searchMedicine()" class="search-button"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div id="medicine-result" class="result-box"></div>
+        </div>
+
+        <div id="suggest-tab" class="tab-content">
+            <div class="suggestion-form">
+                <select id="condition-select">
+                    <option value="">Select your condition</option>
+                    <option value="headache">Headache</option>
+                    <option value="fever">Fever</option>
+                    <option value="cold">Common Cold</option>
+                    <option value="allergies">Allergies</option>
+                    <option value="stomach">Stomach Pain</option>
+                </select>
+                <select id="severity-select">
+                    <option value="">Select severity</option>
+                    <option value="mild">Mild</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="severe">Severe</option>
+                </select>
+                <button onclick="suggestMedicine()" class="suggest-button"><i class="fas fa-lightbulb"></i> Get Suggestions</button>
+            </div>
+            <div id="suggestion-result" class="result-box"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-heartbeat"></i> HealthCare Assistant</h3>
+                <p>Your trusted partner in health and wellness</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#symptoms">Check Symptoms</a></li>
+                    <li><a href="#consult">Consult Doctor</a></li>
+                    <li><a href="#medicine">Medicine Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Emergency</h3>
+                <p><i class="fas fa-phone"></i> 911</p>
+                <p><i class="fas fa-ambulance"></i> Available 24/7</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> 2025 HealthCare Assistant. For emergencies, please call your local emergency services.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
